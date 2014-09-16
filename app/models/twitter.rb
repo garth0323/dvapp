@@ -1,22 +1,21 @@
-class HomesController < ApplicationController
-  def index
-    twitter_data = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json?q=%23WhyIStayed",
+require 'base64'
+require 'httparty'
+require 'uri'
+ 
+class Twitter
+  include HTTParty
+ 
+  base_uri  'https://api.twitter.com'
+  format    :json
+
+  def response(tag)
+    Twitter.get('/1.1/search/tweets.json?q=%23#whyileft&result_type=recent&count=100',
                                 { 
                                   :headers => { 'Authorization' => 'Bearer AAAAAAAAAAAAAAAAAAAAACcdaQAAAAAA9Sx34TvF%2FvYRisl77b7ECdpLlV4%3DB3sKA0bm8ROQ7nsRG4RxIHhLE4EtKnf1RwIfRxTgY9iaFSwV2n' }
                                  })
   end
-end
 
-# require 'base64'
-# require 'httparty'
-# require 'uri'
- 
-# class Twitter
-#   include HTTParty
- 
-#   base_uri  'https://api.twitter.com'
-#   format    :json
-# end
+end
  
 # c_key = 'zMANaTjLVZDkdBeJK2dAPCkni'
 # c_secret = '3htbSHjm5m9l0i4YgXLXNnhofsOBX2GZlVCHzVjAlQW2m3q7j3'
