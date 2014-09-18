@@ -1,0 +1,15 @@
+<div id="masonry-container" class="transitions-enabled">
+  <% @tweets["statuses"].each do |i| %>
+    <div class="box panel panel-default">
+      <%= image_tag(i["user"]["profile_banner_url"], size:"25x25") %>
+      <h4><%= i["user"]["screen_name"] %></h4>
+      <div class="panel-body">
+        <% if i["entities"]["media"].present? %>
+          <%= image_tag(i["entities"]["media"][0]["media_url"], size:"200x200") %>
+        <% end %>
+        <p><%= i["text"] %></p>
+        <%= date = i["created_at"] %>
+      </div>
+    </div>
+  <% end %>
+</div>

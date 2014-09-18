@@ -9,8 +9,10 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'figaro', '0.7.0'
 gem 'httparty'
+gem 'masonry-rails'
 
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
