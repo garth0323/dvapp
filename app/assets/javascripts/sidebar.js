@@ -8,8 +8,10 @@ $(function(){
 
   $('#masonry-container').masonry({
     itemSelector: '.box',
-    columnWidth: 25,
-    gutterWidth: 10
+    columnWidth: 10,
+    gutterWidth: 10,
   });
 
 });
+
+

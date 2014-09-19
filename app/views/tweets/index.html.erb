@@ -3,16 +3,9 @@
       <div class="col-md-12">
         <h3>Hashtags</h3>
         <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="#">#WhyIStayed</a></li>
-          <li class="active"><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
+          <% @hashtags.each do |i| %>
+            <li><a href="#"><%= i.hashtag %></a></li>
+          <% end %>
         </ul>
       </div>
   </div>
