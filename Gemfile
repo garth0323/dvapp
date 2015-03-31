@@ -10,6 +10,7 @@ gem 'autoprefixer-rails'
 gem 'figaro', '0.7.0'
 gem 'httparty'
 gem 'masonry-rails'
+gem 'haml'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'

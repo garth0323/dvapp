@@ -1,0 +1,95 @@
+.wrapper
+  %nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => "#navigation", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand.text-uppercase{:href => "#"}
+          Qwik Content
+          %span.label.label-success.text-capitalize Free
+      / Collect the nav links, forms, and other content for toggling
+      #navigation.collapse.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a{:href => "#"} About
+          %li
+            %a{:href => "#"} Features
+          %li
+            %button.btn.btn-success.navbar-btn.btn-circle{:type => "button"} Sign in
+  %header.header
+    .container
+      .row
+        .col-md-5.col-md-offset-1
+          .content
+            .pull-middle
+              %h1.page-header Create tons of awesome content instantly.
+              %p.lead Leverage the crowd here.
+              .panel.panel-default
+                .panel-body
+                  = form_for @tweet, url: {action: "create"} do |f|
+                    .input-group
+                      .input
+                        = f.text_field :hashtag, placeholder: "hashtag", class: "form-control"
+                        %span.input-group-btn
+                          .button
+                            = f.submit "Try it Free!", class: "btn btn-success btn-circle"
+        .col-md-4.col-md-offset-1.text-center.mt-100.mb-100
+          .phone
+            %img.img-responsive.img-rounded{:src => "http://placemi.com/djlnr/263x480"}
+  %section.section
+    .container
+      .row
+        .col-md-4.col-md-offset-1.text-center.mt-100.mb-100
+          .phone
+            %img.img-responsive.img-rounded{:src => "http://placemi.com/djlnr/263x480"}
+        .col-md-5.col-md-offset-1
+          .content
+            .pull-middle
+              %h2.h1.page-header Discover more about features.
+              %ul.media-list
+                %li.media
+                  %a.media-left{:href => "#"}
+                    %span.glyphicon.glyphicon-cloud.icon.text-success
+                  .media-body
+                    %h3.media-heading Praesent porttitor urna ut enim.
+                    %p Maecenas vitae ex iaculis, efficitur est eu, fermentum quam.
+                %li.media
+                  %a.media-left{:href => "#"}
+                    %span.glyphicon.glyphicon-lock.icon.text-success
+                  .media-body
+                    %h3.media-heading Cras consequat est et elit.
+                    %p Integer suscipit massa at tellus semper, at aliquam ante bibendum.
+                %li.media
+                  %a.media-left{:href => "#"}
+                    %span.glyphicon.glyphicon-user.icon.text-success
+                  .media-body
+                    %h3.media-heading Aenean vel enim quis dui blandit.
+                    %p Maecenas vitae ex iaculis, efficitur est eu, fermentum quam.
+  %section.section
+    .container
+      .row
+        .col-md-3.text-right
+          .content
+            .pull-middle
+              %h4
+                %strong Describe your product.
+              %p Proin sapien neque, consequat ac tempus aliquam, gravida in urna. Phasellus et lectus in odio imperdiet tempus. Aenean posuere, nunc a tristique imperdiet, massa dolor dictum eros, sit amet tempor turpis turpis vel tortor.
+              %small Phasellus feugiat at lorem a tincidunt. Nam hendrerit leo vitae orci pellentesque, nec euismod dolor condimentum.
+        .col-md-4.col-md-offset-1.mt-100.mb-100
+          .phone
+            %img.img-responsive.img-rounded{:src => "http://placemi.com/djlnr/263x480"}
+        .col-md-3.col-md-offset-1
+          .content
+            .pull-middle
+              %h4
+                %strong Even more stuff.
+              %p Proin sapien neque, consequat ac tempus aliquam, gravida in urna. Phasellus et lectus in odio imperdiet tempus. Aenean posuere, nunc a tristique imperdiet, massa dolor dictum eros, sit amet tempor turpis turpis vel tortor.
+              %a.btn.btn-success.btn-circle{:href => "#"} Sign up for free
+  %footer.footer.text-center
+    .container
+      %small
+        © Copyright 2015. Created by Garth Gaughan

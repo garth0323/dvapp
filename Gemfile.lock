@@ -46,6 +46,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -147,6 +149,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   figaro (= 0.7.0)
+  haml
   httparty
   jbuilder (~> 2.0)
   jquery-rails
