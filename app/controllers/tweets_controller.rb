@@ -5,8 +5,8 @@ class TweetsController < ApplicationController
   end
 
   def create
-    # scrape off hashtag method needed
-    @hashtag = Tweet.create(tweet_params)
+    tag = Tweet.pound_sign(params[:tweet][:hashtag])
+    @hashtag = Tweet.create(hashtag: tag)
     redirect_to tweets_path
   end
 
