@@ -11,6 +11,7 @@ gem 'figaro', '0.7.0'
 gem 'httparty'
 gem 'masonry-rails'
 gem 'haml'
+gem 'devise'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -26,6 +27,7 @@ group :development do
   gem 'quiet_assets'
   gem 'pry'
   gem 'sqlite3'
+  gem 'puma'
 end
 
 group :production do
