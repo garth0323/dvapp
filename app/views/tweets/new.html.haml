@@ -11,23 +11,20 @@
         %a.navbar-brand.text-uppercase{:href => "#"}
           Qwik Content
           %span.label.label-success.text-capitalize Free
-      / Collect the nav links, forms, and other content for toggling
       #navigation.collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           %li
-            %a{:href => "#"} About
+            = link_to "Sign In", new_user_session_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
           %li
-            %a{:href => "#"} Features
-          %li
-            %button.btn.btn-success.navbar-btn.btn-circle{:type => "button"} Sign in
+            = link_to "Sign Up", new_user_registration_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
   %header.header
     .container
       .row
         .col-md-5.col-md-offset-1
           .content
             .pull-middle
-              %h1.page-header Create tons of awesome content instantly.
-              %p.lead Leverage the crowd here.
+              %h1.page-header Collect and save all the pictures from your event.
+              %p.lead Easy and fun
               .panel.panel-default
                 .panel-body
                   = form_for @tweet, url: {action: "create"} do |f|

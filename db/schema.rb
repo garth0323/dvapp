@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150402162116) do
 
   create_table "tweets", force: true do |t|
     t.string   "hashtag"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

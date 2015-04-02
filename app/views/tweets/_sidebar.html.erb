@@ -1,0 +1,10 @@
+<div id="sidebar" class="sidebar-offcanvas"> 
+  <div class="col-md-12">
+    <h3>Hashtags</h3>
+    <ul class="nav nav-pills nav-stacked">
+      <% @hashtags.each do |i| %>
+        <li><a href="#"><%= i.hashtag %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,12 +1,20 @@
 class TweetsController < ApplicationController
 
   def new
-    @tweet = Tweet.new
+    if user_signed_in?
+      @tweet = current_user.tweets.new
+    else
+      @tweet = Tweet.new
+    end
   end
 
   def create
     tag = Tweet.pound_sign(params[:tweet][:hashtag])
-    @hashtag = Tweet.create(hashtag: tag)
+    if user_signed_in?
+      @hashtag = current_user.tweets.create(hashtag: tag)
+    else
+      @hashtag = Tweet.create(hashtag: tag)
+    end
     redirect_to tweets_path
   end
 
@@ -17,6 +25,11 @@ class TweetsController < ApplicationController
     @next_url = hash_response["next_url"]
     @tweets = hash_response["data"]
     @hashtags = Tweet.all
+    if user_signed_in?
+      @hashtags = current_user.tweets.all
+    else
+      @hashtags = Tweet.all
+    end
   end
 
   def more
