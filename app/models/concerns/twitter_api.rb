@@ -35,6 +35,6 @@ class TwitterApi
   end
 
   def self.get_next_url(json_data)
-    json_data["search_metadata"]["next_results"]
+    json_data["search_metadata"]["refresh_url"]
   end
 end

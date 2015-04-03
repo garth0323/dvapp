@@ -1,36 +1,19 @@
-<script type="text/javascript">
-var $container = $('#masonry-container');
-$masonry-container.infinitescroll({
-  navSelector  : '#page-nav',    // selector for the paged navigation 
-  nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
-  itemSelector : '.box',     // selector for all items you'll retrieve
-  loading: {
-      finishedMsg: 'No more pages to load.',
-      img: 'http://i.imgur.com/6RMhx.gif'
-    }
-  },
-  // trigger Masonry as a callback
-  function( newElements ) {
-    var $newElems = $( newElements );
-    $container.masonry( 'appended', $newElems );
-  }
-);
-</script>
-
-<div id="masonry-container" class="transitions-enabled infinite-scroll">
-  <% @tweets.each do |i| %>
-    <div class="box panel panel-default">
-      <%= image_tag(i["user"]["profile_image_url"], size:"25x25") %>
-      <%= "@#{i["user"]["screen_name"]}" %>
-      <h5><%= i["user"]["name"] %></h5>
-      <div class="panel-body">
-        <% if i["entities"]["media"].present? %>
-          <%= image_tag(i["entities"]["media"][0]["media_url"], size:"180x180") %>
-        <% end %>
-        <p><%= i["text"] %></p>
-        <p id="grey_text"><%= "posted #{convert_date(i["created_at"])} ago" %></p>
+<div id="masonry-container" class="transitions-enabled">
+  <div id="social-area">
+    <% @tweets.each do |i| %>
+      <div class="box panel panel-default">
+        <%= image_tag(i["user"]["profile_image_url"], size:"25x25") %>
+        <%= "@#{i["user"]["screen_name"]}" %>
+        <h5><%= i["user"]["name"] %></h5>
+        <div class="panel-body">
+          <% if i["entities"]["media"].present? %>
+            <%= image_tag(i["entities"]["media"][0]["media_url"], size:"180x180") %>
+          <% end %>
+          <p><%= i["text"] %></p>
+          <p id="grey_text"><%= "posted #{convert_date(i["created_at"])} ago" %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-<%= render 'more_button' %>
+
