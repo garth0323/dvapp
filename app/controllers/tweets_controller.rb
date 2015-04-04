@@ -33,7 +33,6 @@ class TweetsController < ApplicationController
   end
 
   def more
-    binding.pry
     hash_response = TwitterApi.next_response(params[:url])
     @next_url = hash_response["next_url"]
     @tweets = hash_response["data"]
