@@ -13,23 +13,23 @@ class TweetsController < ApplicationController
     if user_signed_in?
       @hashtag = current_user.tweets.create(hashtag: tag)
     else
-      @hashtag = Tweet.create(hashtag: tag)
+      session_array(tag)
     end
     redirect_to tweets_path
   end
 
   def index
     start = TwitterApi.new
-    @hashtag = Tweet.last.hashtag
+    if user_signed_in?
+      @hashtags = current_user.tweets.all
+      @hashtag = Tweet.last.hashtag
+    else
+      @hashtags = session[:tweet]
+      @hashtag = session[:tweet].last
+    end
     hash_response = start.response(@hashtag)
     @next_url = hash_response["next_url"]
     @tweets = hash_response["data"]
-    @hashtags = Tweet.all
-    if user_signed_in?
-      @hashtags = current_user.tweets.all
-    else
-      @hashtags = Tweet.all
-    end
   end
 
   def more
@@ -42,6 +42,15 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit!
+  end
+
+  def session_array(tag)
+    if session[:tweet].present?
+      return session[:tweet].push(tag)
+    else
+      session[:tweet] = Array.new
+      return session[:tweet] = [tag]
+    end
   end
 end 
 
