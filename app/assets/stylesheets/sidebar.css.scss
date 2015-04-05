@@ -20,6 +20,7 @@ body {
 #main {
   height:100%;
   overflow:auto;
+  background-color: #ededed;
 }
 /*
  * Flex Boxes
@@ -96,7 +97,7 @@ body {
  * --------------------------------------------------
  */
 #masonry-container {
-  background: grey;
+  background: #ededed;
   padding: 5px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -113,6 +114,8 @@ body {
 #tweets {
   margin: 0 auto;
 }
+
+.centered { margin: 0 auto; }
 
 .box {
   margin: 5px;

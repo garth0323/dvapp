@@ -10,6 +10,7 @@ $(function(){
     itemSelector: '.box',
     columnWidth: 10,
     gutterWidth: 10,
+    isFitWidth: true
   });
 
 });

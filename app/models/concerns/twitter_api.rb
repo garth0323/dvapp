@@ -26,6 +26,8 @@ class TwitterApi
     return results
   end
 
+ 
+
   def self.pull_out_tweets(json_data)
     json_tweets = []
     json_data["statuses"].each do |i|
@@ -35,6 +37,6 @@ class TwitterApi
   end
 
   def self.get_next_url(json_data)
-    json_data["search_metadata"]["refresh_url"]
+    json_data["search_metadata"]["next_results"]
   end
 end
