@@ -2,7 +2,8 @@ class Pages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
       t.string "title"
-      t.string "description"
+      t.string "hashtag"
+      t.text "description"
       t.integer "user_id"
       
       t.timestamps

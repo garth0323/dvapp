@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      .well.well-sm.new-form
+        %h3 Create Contest Page
+        %hr
+        = semantic_form_for @page do |f|
+          = f.inputs do
+            = f.input :title
+            = f.input :hashtag
+            = f.input :description
+          = f.actions do
+            = f.action :submit, as: :button
+            = f.action :cancel, as: :link

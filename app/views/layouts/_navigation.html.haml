@@ -8,11 +8,15 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand.text-uppercase{:href => "#"}
-        Qwik Content
+        Qwik Contest
         %span.label.label-success.text-capitalize Free
     #navigation.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        %li
-          = link_to "Sign In", new_user_session_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
-        %li
-          = link_to "Sign Up", new_user_registration_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
+        - if user_signed_in?
+          %li
+            = link_to "Sign Out", destroy_user_session_path
+        - else
+          %li
+            = link_to "Sign In", new_user_session_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
+          %li
+            = link_to "Sign Up", new_user_registration_path, class: "button.btn.btn-success.navbar-btn.btn-circle"

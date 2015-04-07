@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20150406181211) do
 
   create_table "pages", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.string   "hashtag"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

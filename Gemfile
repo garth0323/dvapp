@@ -12,6 +12,8 @@ gem 'httparty'
 gem 'masonry-rails'
 gem 'haml'
 gem 'devise'
+gem 'formtastic', '~> 3.0'
+gem 'formtastic-bootstrap'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
