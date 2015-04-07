@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :more
     end
   end
+  resources :pages
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

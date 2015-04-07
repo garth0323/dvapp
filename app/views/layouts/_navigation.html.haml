@@ -1,0 +1,18 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#navigation", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand.text-uppercase{:href => "#"}
+        Qwik Content
+        %span.label.label-success.text-capitalize Free
+    #navigation.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "Sign In", new_user_session_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
+        %li
+          = link_to "Sign Up", new_user_registration_path, class: "button.btn.btn-success.navbar-btn.btn-circle"
