@@ -1,0 +1,11 @@
+#masonry-container.centered.transitions-enabled
+  - @tweets.each do |i|
+    #social-area.box.panel.panel-default
+      = image_tag(i["user"]["profile_image_url"], size:"25x25")
+      = "@#{i["user"]["screen_name"]}"
+      %h5= i["user"]["name"]
+      .panel-body
+        - if i["entities"]["media"].present?
+          = image_tag(i["entities"]["media"][0]["media_url"], size:"180x180")
+        %p= i["text"]
+        %p#grey_text= "posted #{convert_date(i["created_at"])} ago"
