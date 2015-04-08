@@ -32,6 +32,10 @@ class PagesController < ApplicationController
     @tweets = hash_response["data"]
   end
 
+  def index
+    @pages = current_user.pages
+  end
+
 
   private
 
