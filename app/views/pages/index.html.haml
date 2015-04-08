@@ -4,6 +4,11 @@
       .well.well-sm.new-form
         %h3 Contest Pages
         .list-group
-          %a.list-group-item{:href => "#"}
-            %h4.list-group-item-heading List group item heading
-            %p.list-group-item-text This is the description
+        - @pages.each do |page|
+          %a.list-group-item{href: page_path(page)}
+            %h4.list-group-item-heading 
+              = page.title
+            %p.list-group-item-text
+              = page.hashtag
+            %p.list-group-item-text 
+              = page.description
