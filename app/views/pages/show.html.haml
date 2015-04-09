@@ -1,6 +1,9 @@
-#main
-  = link_to 'Edit Contest', edit_page_path, class: "btn btn-info pull-right edit_button"
-  %h2.text-center
-    \##{@hashtag}
-  = render 'twitter'
-  = render 'more'
+.row-offcanvas.row-offcanvas-left.page-show
+  = render 'sidebar'
+  %button.btn.btn-primary.btn-sm.sidebar_btn{"data-toggle" => "offcanvas", :type => "button"}
+    %i.glyphicon.glyphicon-chevron-left Settings
+  #main
+    %h2.text-center
+      \##{@hashtag}
+    = render 'twitter'
+    = render 'more'

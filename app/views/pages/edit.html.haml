@@ -1,14 +1,18 @@
-.container
-  .row
-    .col-md-6.col-md-offset-3
-      .well.well-sm.new-form
-        = link_to 'See all Contests', pages_path, class: "btn btn-info btn-sm pull-right edit_button"
-        %h3 Settings for Contest
-        %hr
-        = semantic_form_for @page do |f|
-          = f.inputs do
-            = f.input :title
-            = f.input :hashtag
-            = f.input :description, input_html: { rows: 3 }
-          = f.actions do
-            = f.action :submit, label: "Save Page", as: :button
+.row-offcanvas.row-offcanvas-left
+  = render 'sidebar'
+  %button.btn.btn-primary.btn-sm.sidebar_btn{"data-toggle" => "offcanvas", :type => "button"}
+    %i.glyphicon.glyphicon-chevron-left Settings
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        .well.well-sm.new-form
+          = link_to 'See all Contests', pages_path, class: "btn btn-info btn-sm pull-right edit_button"
+          %h3 Settings for Contest
+          %hr
+          = semantic_form_for @page do |f|
+            = f.inputs do
+              = f.input :title
+              = f.input :hashtag
+              = f.input :description, input_html: { rows: 3 }
+            = f.actions do
+              = f.action :submit, label: "Save Page", as: :button

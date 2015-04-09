@@ -1,4 +1,4 @@
-class CreateTweets < ActiveRecord::Migration
+sclass CreateTweets < ActiveRecord::Migration
   def change
     create_table :tweets do |t|
       t.string  "hashtag"

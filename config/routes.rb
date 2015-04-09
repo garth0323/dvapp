@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       get :more
     end
   end
-  resources :pages
+  resources :pages do
+    member do
+      post 'new_post'
+    end
+  end
+  resources :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

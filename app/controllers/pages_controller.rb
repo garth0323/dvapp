@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   before_action :all_pages
   
   def new
-    @page = current_user.pages.new
+    @page = Page.new
+    # binding.pry
   end
 
   def create
@@ -37,6 +38,10 @@ class PagesController < ApplicationController
 
   def index
     @pages = current_user.pages
+  end
+
+  def new_post
+    @post = Post.upload_from_twitter(params[:data], params[:page])
   end
 
 

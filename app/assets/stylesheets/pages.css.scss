@@ -1,3 +1,5 @@
+* { border-radius: 0 !important;}
+
 .new-form { 
   margin-top: 50px;
 }
@@ -6,17 +8,15 @@
   margin-bottom: 50px;
   background-color: darkgrey;
   border: darkgrey;
-  border-radius: 0 
-
 }
 
 .edit_button {
   margin: 20px 20px;
   background-color: darkgrey;
   border: darkgrey;
-  border-radius: 0 
 }
 
-.sidebar_btn {
-  border-radius: 0
+
+.page-show {
+  background-color: #ededed;
 }
