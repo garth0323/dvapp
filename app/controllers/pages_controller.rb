@@ -6,7 +6,6 @@ class PagesController < ApplicationController
   end
 
   def create
-    binding.pry
     tag = Tweet.pound_sign(params[:page][:hashtag])
     @page = current_user.pages.create(title: params[:page][:title], hashtag: tag, description: params[:page][:description])
     redirect_to edit_page_path(@page)
