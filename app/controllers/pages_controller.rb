@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!
+  before_action :all_pages
   
   def new
     @page = current_user.pages.new
@@ -43,6 +44,10 @@ class PagesController < ApplicationController
 
   def page_params
     params.require(:page).permit!
+  end
+
+  def all_pages
+    @user_tags = current_user.pages
   end
 
 end 
