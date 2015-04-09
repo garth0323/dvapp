@@ -6,7 +6,9 @@ class PagesController < ApplicationController
   end
 
   def create
-    @page = current_user.pages.create(page_params)
+    binding.pry
+    tag = Tweet.pound_sign(params[:page][:hashtag])
+    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag, description: params[:page][:description])
     redirect_to edit_page_path(@page)
   end
 
@@ -16,7 +18,8 @@ class PagesController < ApplicationController
 
   def update
     @page = current_user.pages.find(params[:id])
-    if @page.update(page_params)
+    tag = Tweet.pound_sign(params[:page][:hashtag])
+    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description])
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render action: 'edit'
