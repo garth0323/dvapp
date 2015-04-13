@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :posts
   require 'subdomain'
+  user_root_path 'pages#index'
   constraints(Subdomain) do
     get '/' => 'pages#published'
   end
