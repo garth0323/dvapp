@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def create
     tag = Tweet.pound_sign(params[:page][:hashtag])
-    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag, description: params[:page][:description])
+    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain])
     redirect_to edit_page_path(@page)
   end
 
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   def update
     @page = current_user.pages.find(params[:id])
     tag = Tweet.pound_sign(params[:page][:hashtag])
-    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description])
+    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain])
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render action: 'edit'
@@ -42,6 +42,11 @@ class PagesController < ApplicationController
 
   def new_post
     @post = Post.upload_from_twitter(params[:data], params[:page])
+  end
+
+  def published
+    @page = Post.find_by_subdomain!(request.subdomain)
+
   end
 
 

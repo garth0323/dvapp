@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150409211404) do
     t.string   "hashtag"
     t.text     "description"
     t.integer  "user_id"
+    t.string   "subdomain"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

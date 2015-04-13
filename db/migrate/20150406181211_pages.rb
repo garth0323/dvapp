@@ -5,6 +5,7 @@ class Pages < ActiveRecord::Migration
       t.string "hashtag"
       t.text "description"
       t.integer "user_id"
+      t.string "subdomain"
       
       t.timestamps
     end
