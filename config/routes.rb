@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
-  get '/' => 'pages#published', :constraints => { :subdomain => /.+/ }
+  require 'subdomain'
+  constraints(Subdomain) do
+    get '/' => 'pages#published'
+  end
   root 'tweets#new'
 
   # Example of regular route:

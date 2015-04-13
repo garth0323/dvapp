@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :published
   before_action :all_pages
   
   def new
     @page = Page.new
-    # binding.pry
   end
 
   def create
@@ -45,8 +44,8 @@ class PagesController < ApplicationController
   end
 
   def published
-    @page = Post.find_by_subdomain!(request.subdomain)
-
+    @page = Page.find_by subdomain: (request.subdomain)
+    @disable_nav = true
   end
 
 
