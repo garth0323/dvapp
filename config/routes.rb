@@ -25,9 +25,7 @@ Rails.application.routes.draw do
     root "pages#index"
   end
   unauthenticated :user do
-    # devise_scope :user do 
-      get "/" => "tweets#new"
-    # end
+    get "/" => "tweets#new"
   end
   # root 'tweets#new'
 

@@ -20,6 +20,7 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sqlite3'
+gem 'carrierwave'
 
 
 group :doc do

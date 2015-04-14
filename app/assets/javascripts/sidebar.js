@@ -5,14 +5,12 @@ $(document).ready(function() {
 });
 
 $(function(){
-
-  $('#masonry-container').masonry({
-    itemSelector: '.box',
-    columnWidth: 10,
-    gutterWidth: 10,
-    isFitWidth: true
+  $('#masonry-container').imagesLoaded( function() {
+    $('#masonry-container').masonry({
+      itemSelector: '.box',
+      columnWidth: 10,
+      gutterWidth: 10,
+      isFitWidth: true
+    });
   });
-
 });
-
-

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: :published
-  before_action :all_pages
+  before_action :all_pages, except: :published
   
   def new
     @page = Page.new
@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def create
     tag = Tweet.pound_sign(params[:page][:hashtag])
-    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain])
+    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag)
     redirect_to edit_page_path(@page)
   end
 
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   def update
     @page = current_user.pages.find(params[:id])
     tag = Tweet.pound_sign(params[:page][:hashtag])
-    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain])
+    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain], header: params[:page][:header])
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render action: 'edit'
