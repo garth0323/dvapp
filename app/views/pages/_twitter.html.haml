@@ -6,7 +6,7 @@
       %h5= i["user"]["name"]
       .panel-body
         - if i["entities"]["media"].present?
-          = image_tag(i["entities"]["media"][0]["media_url"], size:"180x180")
+          = image_tag(i["entities"]["media"][0]["media_url"], size:"180x180", id: "twitter_image")
         %p#tweet_text= i["text"]
         %p#grey_text= "tweeted #{convert_date(i["created_at"])} ago"
         = link_to new_post_page_path(data: reduce_json(i), page: params[:id]), method: :post, remote: true, id: "twt-#{i["id_str"]}", class: "btn btn-default" do
