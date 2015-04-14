@@ -46,6 +46,7 @@ class PagesController < ApplicationController
   def published
     @page = Page.find_by subdomain: (request.subdomain)
     @disable_nav = true
+    @posts = @page.posts
   end
 
 

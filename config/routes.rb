@@ -17,11 +17,19 @@ Rails.application.routes.draw do
   end
   resources :posts
   require 'subdomain'
-  user_root_path 'pages#index'
+  # user_root_path 'pages#index'
   constraints(Subdomain) do
     get '/' => 'pages#published'
   end
-  root 'tweets#new'
+  authenticated :user do
+    root "pages#index"
+  end
+  unauthenticated :user do
+    # devise_scope :user do 
+      get "/" => "tweets#new"
+    # end
+  end
+  # root 'tweets#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
