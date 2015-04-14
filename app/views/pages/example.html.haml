@@ -1,0 +1,8 @@
+.row-offcanvas.row-offcanvas-left
+  = render 'sidebar'
+  %button.btn.btn-primary.btn-sm.sidebar_btn{"data-toggle" => "offcanvas", :type => "button"}
+    %i.glyphicon.glyphicon-chevron-left Settings 
+  %h3.text-center What your page looks like
+  #main
+    = render 'header'
+    = render 'posts'

@@ -20,3 +20,11 @@
           - @user_tags.each do |page|
             %li
               = link_to page.hashtag, page
+      .btn-group{:role => "group"}
+        %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+          See Example
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          - @user_tags.each do |page|
+            %li
+              = link_to page.hashtag, example_page_path(page)

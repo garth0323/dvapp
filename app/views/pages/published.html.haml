@@ -1,11 +1,3 @@
-= image_tag @page.header_url.to_s
-#masonry-container.centered.transitions-enabled
-  - @posts.each do |i|
-    #social-area.box.panel.panel-default
-      = image_tag(i.profile_image_url, size:"25x25")
-      = "@#{i.screen_name}"
-      %h5= i.name
-      .panel-body
-        - if i.image_url.present?
-          = image_tag(i.image_url, size:"250x250", id: "twitter_image")
-        %p#tweet_text= i.text
+#published_page
+  = render 'header'
+  = render 'posts'

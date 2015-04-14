@@ -49,6 +49,11 @@ class PagesController < ApplicationController
     @posts = @page.posts
   end
 
+  def example
+    @page = current_user.pages.find(params[:id])
+    @posts = @page.posts
+  end
+
 
   private
 

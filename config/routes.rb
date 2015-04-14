@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       post 'new_post'
       get 'published'
+      get 'example'
     end
   end
   resources :posts
