@@ -8,5 +8,5 @@
         - if i.image_url.present?
           = image_tag(i.image_url, size:"250x250", id: "twitter_image")
         %p#tweet_text= i.text
-        = link_to i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" do
+        = link_to i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do
           %i.glyphicon.glyphicon-remove Delete
