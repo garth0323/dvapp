@@ -7,8 +7,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    tag = Tweet.pound_sign(params[:page][:hashtag])
-    @page = current_user.pages.create(title: params[:page][:title], hashtag: tag)
+    @page = current_user.pages.create(page_params)
     redirect_to edit_page_path(@page)
   end
 
@@ -18,11 +17,15 @@ class PagesController < ApplicationController
 
   def update
     @page = current_user.pages.find(params[:id])
-    tag = Tweet.pound_sign(params[:page][:hashtag])
-    if @page.update(title: params[:page][:title], hashtag: tag, description: params[:page][:description], subdomain: params[:page][:subdomain], header: params[:page][:header])
-      redirect_to @page, notice: 'Page was successfully updated.'
-    else
-      render action: 'edit'
+    # tag = Tweet.pound_sign(params[:page][:hashtag]) if params[:page][:hashtag].present?
+     respond_to do |format| 
+      if @page.update(page_params)
+        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.json { respond_with_bip(@page) }
+      else
+        format.html { render action: 'edit' }
+        format.json { respond_with_bip(@page) }
+      end
     end
   end
 
@@ -58,6 +61,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
+    params[:page][:hashtag] = Tweet.pound_sign(params[:page][:hashtag]) if params[:page][:hashtag].present?
     params.require(:page).permit!
   end
 

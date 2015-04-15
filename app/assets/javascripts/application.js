@@ -11,8 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require best_in_place
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
 //= require sidebar
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});

@@ -21,6 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sqlite3'
 gem 'carrierwave'
+gem 'best_in_place', '~> 3.0.1'
 
 
 group :doc do
