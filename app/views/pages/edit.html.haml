@@ -6,7 +6,6 @@
     .row
       .col-md-6.col-md-offset-3
         .well.well-sm.new-form
-          = link_to 'See all Contests', pages_path, class: "btn btn-info btn-sm pull-right edit_button"
           %h3 Settings for Contest
           %hr
           = semantic_form_for @page, html: { multipart: true } do |f|
@@ -15,6 +14,9 @@
               = f.input :hashtag
               = f.input :description, input_html: { rows: 3 }
               = f.input :subdomain
-              = f.input :header
+              = f.input :header, hint: "Best image size is 1200px X 300 px"
+              - if @page.header_url.present?
+                = image_tag @page.header_url, class: 'img img-responsive'
+                %hr
             = f.actions do
               = f.action :submit, label: "Save Page", as: :button

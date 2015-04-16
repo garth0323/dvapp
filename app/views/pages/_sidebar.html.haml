@@ -2,11 +2,11 @@
   .col-md-12
     %h3 Settings
     .btn-group-vertical{"aria-label" => "...", :role => "group"}
-      = link_to "List of Contests", pages_path, class: "btn btn-default"
-      = link_to "New contest", new_page_path, class: "btn btn-default"
+      = link_to "List of Pages", pages_path, class: "btn btn-default"
+      = link_to "New Page", new_page_path, class: "btn btn-default"
       .btn-group{:role => "group"}
         %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
-          Manage Contests
+          Manage Pages
           %span.caret
         %ul.dropdown-menu{:role => "menu"}
           - @user_tags.each do |page|
@@ -14,7 +14,7 @@
               = link_to page.hashtag, edit_page_path(page)
       .btn-group{:role => "group"}
         %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
-          Curate Contest
+          Find Content
           %span.caret
         %ul.dropdown-menu{:role => "menu"}
           - @user_tags.each do |page|
@@ -22,9 +22,17 @@
               = link_to page.hashtag, page
       .btn-group{:role => "group"}
         %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
-          See Example
+          Edit Page
           %span.caret
         %ul.dropdown-menu{:role => "menu"}
           - @user_tags.each do |page|
             %li
               = link_to page.hashtag, example_page_path(page)
+      .btn-group{:role => "group"}
+        %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+          See Live Page
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          - @user_tags.each do |page|
+            %li
+              = link_to page.hashtag, root_url(:host => with_subdomain(page.subdomain)), target: "_blank"
