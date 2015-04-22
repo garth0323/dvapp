@@ -1,3 +1,7 @@
 #published_page
   = render 'header'
+  %h1.text-center
+    = @page.title
+  %h3.text-center
+    = @page.description
   = render 'posts'

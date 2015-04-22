@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
   end
 
   def index
-    start = TwitterApi.new
+    # start = TwitterApi.new
     if user_signed_in?
       @hashtags = current_user.tweets.all
       @hashtag = Tweet.last.hashtag
@@ -27,9 +27,9 @@ class TweetsController < ApplicationController
       @hashtags = session[:tweet]
       @hashtag = session[:tweet].last
     end
-    hash_response = start.response(@hashtag)
-    @next_url = hash_response["next_url"]
-    @tweets = hash_response["data"]
+    response = CombinedResponse.return_hashtag_json(@hashtag)
+    @next_url = response["next_url"]
+    @posts = response["posts"]
   end
 
   def more
