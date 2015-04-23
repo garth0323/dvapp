@@ -29,7 +29,9 @@ class TweetsController < ApplicationController
     end
     response = CombinedResponse.return_hashtag_json(@hashtag)
     @next_url = response["next_url"]
-    @posts = response["posts"]
+    sorted = response["posts"].sort { |x,y| y[:created] <=> x[:created] }
+    binding.pry
+    @posts = sorted
   end
 
   def more

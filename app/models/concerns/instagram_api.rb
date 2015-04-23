@@ -46,8 +46,7 @@ class InstagramApi
   end
 
   def self.unix_time(unix_time)
-    unix_time = Time.at(unix_time.to_i)
-    unix_time.to_s
+    Time.at(unix_time.to_i).asctime
   end
 
   def self.get_next_url(json_data)

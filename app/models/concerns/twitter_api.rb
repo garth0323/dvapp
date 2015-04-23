@@ -35,12 +35,17 @@ class TwitterApi
       name: i["user"]["name"],
       image_url: i["image_url"],
       text: i["text"],
-      created: i["created_at"],
+      created: TwitterApi.date_format(i["created_at"]),
       social_id: i["id_str"],
       type: "twitter"
       ]
     end
     return json_tweets
+  end
+
+  def self.date_format(date)
+    unix = date.to_time.to_i
+    Time.at(unix.to_i).asctime
   end
 
   def self.get_next_url(json_data)
