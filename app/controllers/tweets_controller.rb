@@ -33,9 +33,9 @@ class TweetsController < ApplicationController
   end
 
   def more
-    hash_response = TwitterApi.next_response(params[:url])
-    @next_url = hash_response["next_url"]
-    @tweets = hash_response["data"]
+    response = CombinedResponse.next_response(params[:url])
+    @next_url = response["next_url"]
+    @posts = response["posts"]
   end
 
   private

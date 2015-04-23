@@ -3,18 +3,22 @@
     - if i[:type] == "twitter"
       #social-area.box.panel.panel-default
         = image_tag(i[:profile_image_url], size:"25x25")
+        %i.fa.fa-twitter.fa-lg.pull-right.social_icons
         = "@#{i[:screen_name]}"
         %h5= i[:name]
         .panel-body
           - if i[:image_url].present?
             = image_tag(i[:image_url], size:"250x250", id: "twitter_image")
           %p#tweet_text= i[:text]
+          %p#grey_text= "tweeted #{convert_date(i[:created])} ago"
     - else
       #social-area.box.panel.panel-default
         = image_tag(i[:profile_image_url], size:"25x25")
+        %i.fa.fa-instagram.fa-lg.pull-right.social_icons
         = i[:name] if i[:name].present?
         %h5= i[:screen_name]
         .panel-body
           - if i[:image_url].present?
             = image_tag(i[:image_url], size:"250x250", id: "twitter_image")
           %p#tweet_text= i[:text]
+          %p#grey_text= "posted #{convert_date(i[:created])} ago"

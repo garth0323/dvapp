@@ -14,6 +14,7 @@ gem 'haml'
 gem 'devise'
 gem 'formtastic', '~> 3.0'
 gem 'formtastic-bootstrap'
+gem "font-awesome-rails"
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'

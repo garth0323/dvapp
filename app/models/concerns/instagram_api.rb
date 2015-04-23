@@ -15,12 +15,10 @@ class InstagramApi
   def self.next_response(url)
     json_data = HTTParty.get(url)
     results = Hash.new
-    results["data"] = json_data["data"]
+    results["data"] = InstagramApi.pull_out_data(json_data["data"])
     results["next_url"] = InstagramApi.get_next_url(json_data)
     return results
   end
-
- 
 
   def self.pull_out_data(json_data)
     json = []
