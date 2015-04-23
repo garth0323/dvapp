@@ -5,7 +5,7 @@ class TwitterApi
   end
   
   def response(tag)
-    json_data = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{tag}&count=2",
+    json_data = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{tag}&count=10",
                 { 
                   :headers => { 'Authorization' => 'Bearer AAAAAAAAAAAAAAAAAAAAACcdaQAAAAAA9Sx34TvF%2FvYRisl77b7ECdpLlV4%3DB3sKA0bm8ROQ7nsRG4RxIHhLE4EtKnf1RwIfRxTgY9iaFSwV2n' }
                  })
@@ -29,7 +29,7 @@ class TwitterApi
   def self.pull_out_tweets(json_data)
     json_tweets = []
     json_data["statuses"].each do |i|
-    json_tweets << [
+    json_tweets << [ 
       profile_image_url: i["user"]["profile_image_url"],
       screen_name: i["user"]["screen_name"],
       name: i["user"]["name"],

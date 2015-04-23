@@ -1,21 +1,20 @@
 #masonry-container.centered.transitions-enabled
   - @posts.each do |i|
-    - binding.pry
-    - if i.type == "twitter"
+    - if i[:type] == "twitter"
       #social-area.box.panel.panel-default
-        = image_tag(i.profile_image_url, size:"25x25")
-        = "@#{i.screen_name}"
-        %h5= i.name
+        = image_tag(i[:profile_image_url], size:"25x25")
+        = "@#{i[:screen_name]}"
+        %h5= i[:name]
         .panel-body
-          - if i.image_url.present?
-            = image_tag(i.image_url, size:"250x250", id: "twitter_image")
-          %p#tweet_text= i.text
+          - if i[:image_url].present?
+            = image_tag(i[:image_url], size:"250x250", id: "twitter_image")
+          %p#tweet_text= i[:text]
     - else
       #social-area.box.panel.panel-default
-        = image_tag(i.profile_image_url, size:"25x25")
-        = i.name if i.name.present?
-        %h5= i.screen_name
+        = image_tag(i[:profile_image_url], size:"25x25")
+        = i[:name] if i[:name].present?
+        %h5= i[:screen_name]
         .panel-body
-          - if i.image_url.present?
-            = image_tag(i.image_url, size:"250x250", id: "twitter_image")
-          %p#tweet_text= i.text
+          - if i[:image_url].present?
+            = image_tag(i[:image_url], size:"250x250", id: "twitter_image")
+          %p#tweet_text= i[:text]

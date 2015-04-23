@@ -14,7 +14,7 @@ class CombinedResponse
   end
 
   def self.combine_posts(tweets, instagrams)
-    posts = tweets << instagrams
+    posts = (tweets << instagrams).flatten!
   end
 
 
