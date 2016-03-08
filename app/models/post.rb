@@ -8,8 +8,9 @@ class Post < ActiveRecord::Base
       name: i["name"],
       image_url: i["image_url"],
       text: i["text"],
-      created: i["created_at"],
+      created: i["created"],
       social_id: i["social_id"],
+      social_type: i["type"],
       page_id: page
       )
   end

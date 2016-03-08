@@ -17,8 +17,7 @@ class PagesController < ApplicationController
 
   def update
     @page = current_user.pages.find(params[:id])
-    # tag = Tweet.pound_sign(params[:page][:hashtag]) if params[:page][:hashtag].present?
-     respond_to do |format| 
+    respond_to do |format| 
       if @page.update(page_params)
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
         format.json { respond_with_bip(@page) }
@@ -31,11 +30,11 @@ class PagesController < ApplicationController
 
   def show
     @page = current_user.pages.find(params[:id])
-    start = TwitterApi.new
     @hashtag = @page.hashtag
-    hash_response = start.response(@hashtag)
-    @next_url = hash_response["next_url"]
-    @tweets = hash_response["data"]
+    response = CombinedResponse.return_hashtag_json(@hashtag)
+    @next_url = response["next_url"]
+    sorted = response["posts"].sort { |x,y| y[:created] <=> x[:created] }
+    @posts = sorted
   end
 
   def index

@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :name
       t.string :image_url
       t.string :text
+      t.string :social_type
       t.integer :page_id
       t.datetime :created
       t.string :social_id

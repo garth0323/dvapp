@@ -19,7 +19,6 @@ class TweetsController < ApplicationController
   end
 
   def index
-    # start = TwitterApi.new
     if user_signed_in?
       @hashtags = current_user.tweets.all
       @hashtag = Tweet.last.hashtag
@@ -30,7 +29,6 @@ class TweetsController < ApplicationController
     response = CombinedResponse.return_hashtag_json(@hashtag)
     @next_url = response["next_url"]
     sorted = response["posts"].sort { |x,y| y[:created] <=> x[:created] }
-    binding.pry
     @posts = sorted
   end
 
